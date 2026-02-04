@@ -2,13 +2,10 @@ pipeline {
   agent any
 
   stages {
-    stage('Checkout') {
-      steps { checkout scm }
-    }
-
-    stage('Deploy (Docker Compose)') {
+    stage('Deploy (Docker Compose from home folder)') {
       steps {
         sh '''
+          cd /Users/abdelalime/openmrs-docker
           /usr/local/bin/docker compose up -d
         '''
       }
